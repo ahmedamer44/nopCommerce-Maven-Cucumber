@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="3" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="15" time="166.223">
+    <testcase classname="F01_Register | users could register with new accounts" name="guest user could register with valid data successfully" time="17.73">
+        <system-out><![CDATA[Given user go to register page..............................................passed
+When user select gender type................................................passed
+And user enter first name "automation" and last name "tester"...............passed
+And user enter date of birth................................................passed
+And user enter email "test11@example.com" field.............................passed
+And user fills Password fields "P@ssw0rd" "P@ssw0rd"........................passed
+And user clicks on register button..........................................passed
+Then success message is displayed...........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="F02_Login | users could use login functionality to use their accounts" name="user could login with valid email and password" time="9.929">
+        <system-out><![CDATA[Given user go to login page.................................................passed
+When user login with valid "test11@example.com" and "P@ssw0rd"..............passed
+And user press on login button..............................................passed
+Then user login to the system successfully..................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="F02_Login | users could use login functionality to use their accounts" name="user could login with invalid email and password" time="8.659">
+        <system-out><![CDATA[Given user go to login page again...........................................passed
+When user login with invalid "wrong@example.com" and "P@ssw0rd".............passed
+And user press on login button again........................................passed
+Then user could not login to the system.....................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="F03_Currencies | user could select different currencies" name="user could switch to euro currency" time="9.18">
+        <system-out><![CDATA[When user select euro option................................................passed
+Then euro symbol is displayed...............................................passed
+When user select dollar option..............................................passed
+Then dollar option is displayed back........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="F04_Search | User could search for products using keywords or SKU" name="user search for product using keyword" time="8.397">
+        <system-out><![CDATA[When user search for item with keyword "Nokia Lumia 1020"...................passed
+And user click on search button.............................................passed
+Then user should see the search result......................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="F04_Search | User could search for products using keywords or SKU" name="user search for product using SKU" time="10.044">
+        <system-out><![CDATA[When user type a Product Sku "AP_MBP_13"....................................passed
+And user click on the search button.........................................passed
+And user click on the shown product.........................................passed
+Then user should see the result of the SKU search...........................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="F05_Hover | user could hover on a product and choose sub category" name="user select sub product from the main categories using hover actions" time="8.483">
+        <system-out><![CDATA[When user hover over computers products icon................................passed
+And user click on the subcategory Notebooks.................................passed
+Then user should be directed to Notebooks page..............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="F06_HomeSliders | user could select product from Home Sliders" name="first slider is clickable on home page ( Nokia Lumia )" time="13.42">
+        <failure message="Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on MAC (d35be3a8f9781dd907964b319223df65)] -&gt; xpath: //*[@id=&quot;nivo-slider&quot;]/a[2]] (tried for 5 second(s) with 500 milliseconds interval)&#10;Build info: version: '4.5.3', revision: '4b786a1e430'&#10;System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '11.6.7', java.version: '19'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.121, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: /var/folders/1k/shlf6zd95xs...}, goog:chromeOptions: {debuggerAddress: localhost:58059}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:58059/devtoo..., se:cdpVersion: 107.0.5304.121, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: d35be3a8f9781dd907964b319223df65" type="org.openqa.selenium.TimeoutException"><![CDATA[When user click on nokia lumia home slider..................................passed
+Then user should be redirected to The Nokia product page....................failed
+
+StackTrace:
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on MAC (d35be3a8f9781dd907964b319223df65)] -> xpath: //*[@id="nivo-slider"]/a[2]] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '4.5.3', revision: '4b786a1e430'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '11.6.7', java.version: '19'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.121, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: /var/folders/1k/shlf6zd95xs...}, goog:chromeOptions: {debuggerAddress: localhost:58059}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:58059/devtoo..., se:cdpVersion: 107.0.5304.121, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: d35be3a8f9781dd907964b319223df65
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at org.example.stepDefs.D06_homeSlidersStepDef.userShouldBeRedirectedToTheNokiaProductPage(D06_homeSlidersStepDef.java:32)
+	at ✽.user should be redirected to The Nokia product page(file:///Users/ahmadamer/IdeaProjects/nopCommerce_Maven_Cucumber/src/main/resources/features/F06_homeSliders.feature:5)
+]]></failure>
+    </testcase>
+    <testcase classname="F06_HomeSliders | user could select product from Home Sliders" name="second slider is clickable on home page" time="16.244">
+        <failure message="Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on MAC (03b38017196d96799a2675d283366bf0)] -&gt; xpath: //*[@id=&quot;nivo-slider&quot;]/a[2]] (tried for 5 second(s) with 500 milliseconds interval)&#10;Build info: version: '4.5.3', revision: '4b786a1e430'&#10;System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '11.6.7', java.version: '19'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.121, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: /var/folders/1k/shlf6zd95xs...}, goog:chromeOptions: {debuggerAddress: localhost:58135}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:58135/devtoo..., se:cdpVersion: 107.0.5304.121, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 03b38017196d96799a2675d283366bf0" type="org.openqa.selenium.TimeoutException"><![CDATA[When user click on iphone home slider.......................................passed
+Then user should be directed to the iphone product page.....................failed
+
+StackTrace:
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on MAC (03b38017196d96799a2675d283366bf0)] -> xpath: //*[@id="nivo-slider"]/a[2]] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '4.5.3', revision: '4b786a1e430'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '11.6.7', java.version: '19'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.121, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: /var/folders/1k/shlf6zd95xs...}, goog:chromeOptions: {debuggerAddress: localhost:58135}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:58135/devtoo..., se:cdpVersion: 107.0.5304.121, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 03b38017196d96799a2675d283366bf0
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at org.example.stepDefs.D06_homeSlidersStepDef.userShouldBeDirectedToTheIphoneProductPage(D06_homeSlidersStepDef.java:59)
+	at ✽.user should be directed to the iphone product page(file:///Users/ahmadamer/IdeaProjects/nopCommerce_Maven_Cucumber/src/main/resources/features/F06_homeSliders.feature:9)
+]]></failure>
+    </testcase>
+    <testcase classname="F07_followUs | users could open followUs links" name="user opens facebook link" time="10.547">
+        <system-out><![CDATA[When user opens facebook link...............................................passed
+Then Facebook is opened in new tab..........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="F07_followUs | users could open followUs links" name="user opens twitter link" time="10.644">
+        <system-out><![CDATA[When user opens twitter link................................................passed
+Then Twitter is opened in new tab...........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="F07_followUs | users could open followUs links" name="user opens rss link" time="11.306">
+        <failure message="Index 1 out of bounds for length 1" type="java.lang.IndexOutOfBoundsException"><![CDATA[When user opens rss link....................................................passed
+Then RSS is opened in new tab...............................................failed
+
+StackTrace:
+java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+	at java.base/java.util.Objects.checkIndex(Objects.java:385)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.example.stepDefs.D07_followUsStepDef.rssIsOpenedInNewTab(D07_followUsStepDef.java:77)
+	at ✽.RSS is opened in new tab(file:///Users/ahmadamer/IdeaProjects/nopCommerce_Maven_Cucumber/src/main/resources/features/F07_followUs.feature:11)
+]]></failure>
+    </testcase>
+    <testcase classname="F07_followUs | users could open followUs links" name="user opens youtube link" time="10.826">
+        <system-out><![CDATA[When user opens youtube link................................................passed
+Then YOUTUBE is opened in new tab...........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="F08_Wishlist | User could add products to wishlist" name="user add product to wishlist successfully" time="7.771">
+        <system-out><![CDATA[When user click on add to wishlist button for the product...................passed
+Then user should see the success message....................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="F08_Wishlist | User could add products to wishlist" name="user add product to wishlist and verify size" time="12.677">
+        <system-out><![CDATA[When user click on add to wishlist button to add product....................passed
+And user wait for the success message to disappear..........................passed
+Then user should verify quantity value......................................passed
+]]></system-out>
+    </testcase>
+</testsuite>
